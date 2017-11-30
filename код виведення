@@ -1,0 +1,58 @@
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+int n;
+cout << "Enter the length of the matrix" << endl;
+cin >> n;
+
+int ** arr = new int *[n];
+for (int k = 0; k < n; ++k)
+{
+arr[k] = new int[n];
+}
+
+
+int i = 1, j, k, p = n / 2 + 1;
+for (k = 1; k <= p; k++)  
+{
+for (j = k - 1; j<n - k + 1; j++) 
+{
+cout << "Enter arr [" << k - 1 << "][" << j << "] = ";
+cin >> arr[k - 1][j];
+}
+for (j = k; j<n - k + 1; j++) 
+{
+cout << "Enter arr [" << j << "][" << n - k << "] = ";
+cin >> arr[j][n - k];
+}
+
+for (j = n - k - 1; j >= k - 1; --j)
+{
+cout << "Enter arr [" << n - k << "][" << j << "] = ";
+cin >> arr[n - k][j];
+}
+
+for (j = n - k - 1; j >= k; j--)
+{
+cout << "Enter arr [" << j << "][" << k - 1 << "] = ";
+cin >> arr[j][k - 1];
+}
+}
+
+
+
+for (int i = 0; i < n; i++)
+{
+for (int j = 0; j < n; j++)
+{
+cout << "\t" << arr[i][j];
+}
+cout << endl;
+}
+system("pause");
+return 0;
+}
